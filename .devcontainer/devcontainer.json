@@ -29,8 +29,8 @@
 	"features": {
 		"docker-from-docker": "latest"
 	},
-	"onCreateCommand": "sleep 1 && echo onCreateCommand > /workspaces/.codespaces/shared/first-run-notice.txt",
-	"updateContentCommand": "sleep 1 && echo updateContentCommand >> /workspaces/.codespaces/shared/first-run-notice.txt",
-	"postCreateCommand": "sleep 1 && echo postCreateCommand >> /workspaces/.codespaces/shared/first-run-notice.txt",
+	"onCreateCommand": "sleep 30 && echo onCreateCommand > /workspaces/.codespaces/shared/first-run-notice.txt",
+	"updateContentCommand": "sleep 30 && echo updateContentCommand >> /workspaces/.codespaces/shared/first-run-notice.txt",
+	"postCreateCommand": "sleep 39 && echo postCreateCommand >> /workspaces/.codespaces/shared/first-run-notice.txt",
 	"waitFor": "postCreateCommand"
 }
