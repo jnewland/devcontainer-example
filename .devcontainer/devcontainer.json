@@ -2,12 +2,8 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.208.0/containers/debian
 {
 	"name": "Debian",
-	"build": {
-		"dockerfile": "Dockerfile",
-		// Update 'VARIANT' to pick an Debian version: bullseye, buster, stretch
-		// Use bullseye or stretch on local arm64/Apple Silicon.
-		"args": { "VARIANT": "bullseye" }
-	},
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
 
 	// Set *default* container specific settings.json values on container create.
 	"settings": {},
@@ -16,8 +12,14 @@
 	"extensions": [],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-
+	"forwardPorts": [
+		80
+	],
+	"portsAttributes": {
+		"80": {
+			"label": "nginx"
+		}
+	},
 	// Uncomment to use the Docker CLI from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker.
 	// "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
 
