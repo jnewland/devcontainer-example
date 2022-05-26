@@ -8,18 +8,6 @@ services:
       - /var/run/docker.sock:/var/run/docker-host.sock
     init: true
     command: sleep infinity
-    network_mode: service:devcontainer
-
-  devcontainer:
-    # A 'pause' container that exists only for its network namespace,
-    # which is use by the app container and all other containers that
-    # need to present resources to the app's `localhost`.
-    image: busybox
-    command:
-      - tail
-      - -F
-      - /tmp/does-not-exist
 
   nginx:
     image: nginx
-    network_mode: service:devcontainer

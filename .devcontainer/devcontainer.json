@@ -31,8 +31,5 @@
 	"features": {
 		"docker-from-docker": "latest"
 	},
-	"onCreateCommand": "sleep 30 && echo onCreateCommand",
-	"updateContentCommand": "sleep 30 && echo updateContentCommand",
-	"postCreateCommand": "sleep 30 && echo postCreateCommand",
-	"waitFor": "postCreateCommand"
+	"postStartCommand": "nohup bash -c 'socat TCP-LISTEN:80,fork TCP:nginx:80 &' > /dev/null"
 }
