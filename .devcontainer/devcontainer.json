@@ -29,8 +29,12 @@
 	"features": {
 		"docker-from-docker": "latest"
 	},
-	"onCreateCommand": "sleep 30 && echo onCreateCommand",
-	"updateContentCommand": "sleep 30 && echo updateContentCommand",
-	"postCreateCommand": "sleep 30 && echo postCreateCommand",
+	// https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts
+	"initializeCommand": "mkdir -p log; date >> log/initializeCommand.log",
+	"onCreateCommand": "mkdir -p log; date >> log/onCreateCommand.log",
+	"updateContentCommand": "date >> log/updateContentCommand.log",
+	"postCreateCommand": "date >> log/postCreateCommand.log",
+	"postStartCommand": "date >> log/postStartCommand.log",
+	"postAttachCommand": "date >> log/postAttachCommand.log",
 	"waitFor": "postCreateCommand"
 }
