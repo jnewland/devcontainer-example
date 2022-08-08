@@ -30,11 +30,11 @@
 		"docker-from-docker": "latest"
 	},
 	// https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts
-	"initializeCommand": "mkdir -p log; date >> log/initializeCommand.log",
-	"onCreateCommand": "mkdir -p log; date >> log/onCreateCommand.log",
-	"updateContentCommand": "date >> log/updateContentCommand.log",
-	"postCreateCommand": "date >> log/postCreateCommand.log",
-	"postStartCommand": "date >> log/postStartCommand.log",
-	"postAttachCommand": "date >> log/postAttachCommand.log",
+	"initializeCommand": "mkdir -p log; echo \"$(whoami)@$(hostname) $(date)\" >> log/initializeCommand.log",
+	"onCreateCommand": "mkdir -p log; echo \"$(whoami)@$(hostname) $(date)\" >> log/onCreateCommand.log",
+	"updateContentCommand": "echo \"$(whoami)@$(hostname) $(date)\" >> log/updateContentCommand.log",
+	"postCreateCommand": "echo \"$(whoami)@$(hostname) $(date)\" >> log/postCreateCommand.log",
+	"postStartCommand": "echo \"$(whoami)@$(hostname) $(date)\" >> log/postStartCommand.log",
+	"postAttachCommand": "echo \"$(whoami)@$(hostname) $(date)\" >> log/postAttachCommand.log",
 	"waitFor": "postCreateCommand"
 }
